@@ -1,14 +1,20 @@
 import { Outlet } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
+import { useAuth } from "../context/AuthContext";
 import { CURRENT_RECIPIENT } from "../data/seed";
 
 export default function RecipientLayout() {
+  const { user } = useAuth();
+
+  const profileName = user?.name ?? CURRENT_RECIPIENT.name;
+  const initials = user?.avatarInitials ?? CURRENT_RECIPIENT.avatarInitials;
+
   return (
     <div className="app">
       <Sidebar
-        profileName={CURRENT_RECIPIENT.name}
-        profileRole={`Recipient · Barangay ${CURRENT_RECIPIENT.barangay}`}
-        avatarInitials={CURRENT_RECIPIENT.avatarInitials}
+        profileName={profileName}
+        profileRole={`Recipient · ${user?.email ?? `Barangay ${CURRENT_RECIPIENT.barangay}`}`}
+        avatarInitials={initials}
         avatarTeal
         groups={[
           {

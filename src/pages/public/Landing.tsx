@@ -13,7 +13,7 @@ export default function Landing() {
           </div>
           <div className="nav-cta">
             <Link to="/login" className="btn btn-ghost">Log in</Link>
-            <Link to="/login" className="btn btn-primary">Get the app</Link>
+            <Link to="/signup" className="btn btn-primary">Get the app</Link>
           </div>
         </nav>
       </header>
@@ -32,8 +32,8 @@ export default function Landing() {
             really in someone's hands.
           </p>
           <div className="hero-actions">
-            <Link to="/login" className="btn btn-primary btn-lg">I want to give</Link>
-            <Link to="/login" className="btn btn-ghost btn-lg">I need help</Link>
+            <Link to="/signup" className="btn btn-primary btn-lg">I want to give</Link>
+            <Link to="/signup" className="btn btn-ghost btn-lg">I need help</Link>
           </div>
         </div>
 
@@ -150,8 +150,8 @@ export default function Landing() {
         <div className="eyebrow" style={{ justifyContent: "center" }}>Join the network</div>
         <h2>Mandaue takes care of Mandaue.</h2>
         <div className="hero-actions" style={{ justifyContent: "center" }}>
-          <Link to="/login" className="btn btn-primary btn-lg">I want to give</Link>
-          <Link to="/login" className="btn btn-ghost btn-lg">I need help</Link>
+          <Link to="/signup" className="btn btn-primary btn-lg">I want to give</Link>
+          <Link to="/signup" className="btn btn-ghost btn-lg">I need help</Link>
         </div>
       </section>
 

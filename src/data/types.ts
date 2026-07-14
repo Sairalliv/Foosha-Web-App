@@ -116,3 +116,17 @@ export interface AnalyticsSnapshot {
   matchesByBarangay: { barangay: string; matches: number }[];
   topDonors: { name: string; givenPhp: number; trendPct: number }[];
 }
+
+// ── Auth ──────────────────────────────────────────────────────────
+// Represents the currently logged-in user. When Supabase is connected,
+// this maps to a combination of `auth.users` (id, email) and a custom
+// `profiles` table (name, role, avatarInitials).
+
+export interface AuthUser {
+  id: string;
+  email: string;
+  name: string;
+  role: "donor" | "recipient" | "admin";
+  avatarInitials: string;
+  createdAt: string;
+}

@@ -1,14 +1,20 @@
 import { Outlet } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
+import { useAuth } from "../context/AuthContext";
 
 export default function AdminLayout() {
+  const { user } = useAuth();
+
+  const profileName = user?.name ?? "Mandaue City Hall";
+  const initials = user?.avatarInitials ?? "CH";
+
   return (
     <div className="app">
       <Sidebar
         subtitle="City admin console"
-        profileName="Mandaue City Hall"
-        profileRole="Admin · Social Welfare Office"
-        avatarInitials="CH"
+        profileName={profileName}
+        profileRole={`Admin · ${user?.email ?? "Social Welfare Office"}`}
+        avatarInitials={initials}
         avatarTeal
         groups={[
           {

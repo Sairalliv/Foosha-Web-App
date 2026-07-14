@@ -3,6 +3,8 @@ import { AuthProvider } from "./context/AuthContext";
 import RequireRole from "./components/RequireRole";
 
 import Landing from "./pages/public/Landing";
+import SignUp from "./pages/public/SignUp";
+import Login from "./pages/public/Login";
 import RoleSelect from "./pages/public/RoleSelect";
 
 import DonorLayout from "./layouts/DonorLayout";
@@ -32,7 +34,9 @@ export default function App() {
     <AuthProvider>
       <Routes>
         <Route path="/" element={<Landing />} />
-        <Route path="/login" element={<RoleSelect />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/login/roles" element={<RoleSelect />} />
 
         <Route
           path="/donor"
