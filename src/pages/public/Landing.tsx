@@ -1,4 +1,13 @@
+import type { MouseEvent } from "react";
 import { Link } from "react-router-dom";
+
+// HashRouter uses the URL hash for routing, so a plain <a href="#id"> gets
+// swallowed as a route change instead of scrolling the page. Intercept the
+// click and scroll manually so the router's hash never changes.
+function scrollToSection(e: MouseEvent<HTMLAnchorElement>, id: string) {
+  e.preventDefault();
+  document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+}
 
 export default function Landing() {
   return (
@@ -7,9 +16,9 @@ export default function Landing() {
         <nav className="site">
           <img className="logo-mark" style={{ marginBottom: 0, height: 30 }} src={`${import.meta.env.BASE_URL}assets/foosha-logo.png`} alt="Foosha" />
           <div className="navlinks">
-            <a href="#how-it-works">How it works</a>
-            <a href="#trust-codes">Trust &amp; codes</a>
-            <a href="#leaderboard">Leaderboard</a>
+            <a href="#how-it-works" onClick={(e) => scrollToSection(e, "how-it-works")}>How it works</a>
+            <a href="#trust-codes" onClick={(e) => scrollToSection(e, "trust-codes")}>Trust &amp; codes</a>
+            <a href="#leaderboard" onClick={(e) => scrollToSection(e, "leaderboard")}>Leaderboard</a>
           </div>
           <div className="nav-cta">
             <Link to="/login" className="btn btn-ghost">Log in</Link>
